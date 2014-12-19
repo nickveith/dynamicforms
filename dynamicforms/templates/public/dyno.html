@@ -1,0 +1,20 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container-narrow">
+  <h1>Dynamic Form</h1>
+    <br/>
+    <form id="dynoForm" class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{form.textField1.label}}
+                {{form.textField1(placeholder="Placeholder", class_="form-control")}}
+                {{form.boolField2.label}}
+                {{form.boolField2(class_="form-control")}}
+            </div>
+            <p><input class="btn btn-default btn-submit" type="submit" value="Submit Button Text"></p>
+    </form>
+</div>
+
+{% endblock %}

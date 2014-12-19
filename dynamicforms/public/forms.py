@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, PasswordField
+from wtforms import TextField, PasswordField, BooleanField
 from wtforms.validators import DataRequired
 
 from dynamicforms.user.models import User
@@ -30,3 +30,17 @@ class LoginForm(Form):
             self.username.errors.append('User not activated')
             return False
         return True
+
+class DynoForm(Form):
+    username = TextField('Username')
+    password = PasswordField('Password')
+
+    def __init__(self, *args, **kwargs):
+        super(DynoForm, self).__init__(*args, **kwargs)
+        self.user = None
+
+    textField1 = TextField('textField1', validators=[DataRequired()])
+    boolField2 = BooleanField()
+
+class ContentTypeForm(Form):
+    field1 = TextField('field1')

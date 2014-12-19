@@ -6,7 +6,7 @@ from flask.ext.login import login_user, login_required, logout_user
 
 from dynamicforms.extensions import login_manager
 from dynamicforms.user.models import User
-from dynamicforms.public.forms import LoginForm
+from dynamicforms.public.forms import LoginForm, DynoForm
 from dynamicforms.user.forms import RegisterForm
 from dynamicforms.utils import flash_errors
 from dynamicforms.database import db
@@ -57,3 +57,15 @@ def register():
 def about():
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
+
+
+@blueprint.route("/dyno/", methods=['GET', 'POST'])
+def dyno():
+    form = DynoForm(request.form)
+    if form.validate_on_submit():
+        flash('great success')
+    else:
+        flash_errors(form)
+    return render_template("public/dyno.html", form=form)
+
+
