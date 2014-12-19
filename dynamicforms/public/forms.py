@@ -40,7 +40,10 @@ class DynoForm(Form):
         self.user = None
 
     textField1 = TextField('textField1', validators=[DataRequired()])
+    textField2 = TextField('textField2', validators=[DataRequired()])
     boolField2 = BooleanField()
 
 class ContentTypeForm(Form):
     field1 = TextField('field1')
+    field2 = TextField('field1')
+    field3 = TextField('field1')

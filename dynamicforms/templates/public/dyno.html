@@ -2,6 +2,14 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<script>
+    $(document).ready(function(){
+      $("p").click(function(){
+        $(this).hide();
+      });
+    });
+</script>
+
 <div class="container-narrow">
   <h1>Dynamic Form</h1>
     <br/>
@@ -10,6 +18,8 @@
             <div class="form-group">
                 {{form.textField1.label}}
                 {{form.textField1(placeholder="Placeholder", class_="form-control")}}
+                {{form.textField2.label}}
+                {{form.textField2(placeholder="Placeholder", class_="form-control")}}
                 {{form.boolField2.label}}
                 {{form.boolField2(class_="form-control")}}
             </div>
